@@ -1,0 +1,24 @@
+name: untitled
+resource_size: s
+apiVersion: 3
+sources:
+  stellar_transactions:
+    type: dataset
+    dataset_name: stellar.transactions
+    version: 1.0.0
+    start_at: earliest
+transforms:
+  subset_transform:
+    type: sql
+    sql: >-
+      SELECT id, transaction_hash, ledger_sequence, account, account_muxed,
+      tx_result from stellar_transactions
+    primary_key: id
+sinks:
+  postgres_stellar_transactions:
+    type: postgres
+    table: stellar_transactions
+    schema: public
+    secret_name: <YOUR_SECRET_NAME>
+    description: 'Postgres sink for: stellar_transactions'
+    from: subset_transform
