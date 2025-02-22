@@ -1,0 +1,21 @@
+{
+  "name": "stellar-pools-hex",
+  "version": "1.0.0",
+  "main": "dist/addressToHex.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "generate": "ts-node scripts/addressToHex.ts",
+    "dev": "nodemon --exec ts-node scripts/addressToHex.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@stellar/stellar-sdk": "11.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "ts-node": "^10.9.2",
+    "nodemon": "^3.0.2",
+    "typescript": "^5.3.3"
+  }
+} 
