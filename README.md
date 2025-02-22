@@ -3,22 +3,30 @@
 This repo contains public examples of Goldsky Mirror Pipelines and Subgraphs that are referrenced accross the [Goldsky documentation](https://docs.goldsky.com/)
 
 
-## Commands
+## Commands Golsky
 
-goldsky            Get started with Goldsky                          [default]
-goldsky login      Log in to Goldsky to enable authenticated CLI commands
-goldsky logout     Log out of Goldsky on this computer
-goldsky subgraph   Commands related to subgraphs
-goldsky project    Commands related to project management
-goldsky pipeline   Commands related to Goldsky pipelines
-goldsky dataset    Commands related to Goldsky datasets
-goldsky indexed    Analyze blockchain data with indexed.xyz
-goldsky secret     Commands related to secret management
-goldsky telemetry  Commands related to CLI telemetry
+#### login
+goldsky login --token  
 
-Options:
---token    CLI Auth Token                           [string] [default: ""]
---color    Colorize output                       [boolean] [default: true]
--v, --version  Show version number                                   [boolean]
--h, --help     Show help                                             [boolean}
-showHelp
+#### Secret list 
+goldsky secret list
+
+#### Create secret config
+goldsky secret create --name TU_SECRETO_POSTGRES --value '{
+  "type": "jdbc",
+  "protocol": "postgresql",
+  "host": "tu.host.db",
+  "port": 5432,
+  "databaseName": "tuBaseDeDatos",
+  "user": "tuUsuario",
+  "password": "tuContraseña"
+}'
+
+#### Cargar archivo.yaml
+goldsky pipeline apply stellar-transactions.yaml --status ACTIVE
+
+#### Monitoreo pipeline
+goldsky pipeline monitor stellar-transactions
+
+#### Parar el monitoreo
+goldsky pipeline stop stellar-transactions

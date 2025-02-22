@@ -1,4 +1,4 @@
-name: untitled
+name: stellar-transactions
 resource_size: s
 apiVersion: 3
 sources:
@@ -19,6 +19,6 @@ sinks:
     type: postgres
     table: stellar_transactions
     schema: public
-    secret_name: <YOUR_SECRET_NAME>
+    secret_name: SOROSWAP
     description: 'Postgres sink for: stellar_transactions'
     from: subset_transform

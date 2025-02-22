@@ -1,0 +1,11 @@
+apiVersion: 3
+name: stellar-contract-events
+status: ACTIVE
+sources:
+  stellar_contract_events:
+    dataset_name: stellar.contract_events
+    version: 1.0.0
+    type: dataset
+    start_at: latest
+transforms: {}
+sinks: {}
