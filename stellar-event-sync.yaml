@@ -7,10 +7,9 @@ sources:
     dataset_name: stellar.contract_events
     version: 1.0.0
     start_at: earliest
-    #filter: topics LIKE '536f726f7377617050616972%'
-    #filter: topics LIKE 'SoroswapPair%'
-    # WHERE topics LIKE 'SoroswapPair%'
-    # WHERE topics LIKE '536f726f7377617050616972%'  
+    filter: topics_decoded LIKE '%SoroswapPair%' AND topics_decoded LIKE '%sync%'
+    # filter: topics LIKE '536f726f7377617050616972%'
+    # filter: topics LIKE '%SoroswapPair%' 
     description: "Eventos de contratos de Stellar"
 
 transforms:

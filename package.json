@@ -12,7 +12,8 @@
     "stop": "goldsky pipeline stop stellar-event-sync",
     "reset": "goldsky pipeline stop stellar-event-sync && goldsky pipeline delete stellar-event-sync && goldsky pipeline list",
     "check": "goldsky pipeline validate stellar-event-sync.yaml",
-    "check-db": "ts-node scripts/checkPostgres.ts"
+    "check-db": "ts-node scripts/checkPostgres.ts",
+    "list-secrets": "goldsky secret list"
   },
   "dependencies": {
     "@stellar/stellar-sdk": "11.0.1",
