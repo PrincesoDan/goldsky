@@ -1,0 +1,31 @@
+name: stellar-event-sync
+resource_size: s
+apiVersion: 3
+sources:
+  stellar_events:
+    type: dataset
+    dataset_name: stellar.contract_events
+    version: 1.0.0
+    start_at: earliest
+    #filter: topics LIKE '536f726f7377617050616972%'
+    #filter: topics LIKE 'SoroswapPair%'
+    # WHERE topics LIKE 'SoroswapPair%'
+    # WHERE topics LIKE '536f726f7377617050616972%'  
+    description: "Eventos de contratos de Stellar"
+
+transforms:
+  soroswap_pair_events:
+    type: sql
+    primary_key: id
+    sql: >
+      SELECT *
+      FROM stellar_events
+    
+sinks:
+  postgres_sink:
+    type: postgres
+    secret_name: SOROSWAP
+    from: soroswap_pair_events
+    table: soroswap_pair_events
+    schema: public
+    description: "Sink para eventos de SoroswapPair"
