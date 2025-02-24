@@ -11,15 +11,19 @@
     "sync": "goldsky pipeline apply stellar-event-sync.yaml --status ACTIVE && goldsky pipeline monitor stellar-event-sync",
     "stop": "goldsky pipeline stop stellar-event-sync",
     "reset": "goldsky pipeline stop stellar-event-sync && goldsky pipeline delete stellar-event-sync && goldsky pipeline list",
-    "check": "goldsky pipeline validate stellar-event-sync.yaml"
+    "check": "goldsky pipeline validate stellar-event-sync.yaml",
+    "check-db": "ts-node scripts/checkPostgres.ts"
   },
   "dependencies": {
-    "@stellar/stellar-sdk": "11.0.1"
+    "@stellar/stellar-sdk": "11.0.1",
+    "pg": "^8.11.3",
+    "dotenv": "^16.3.1"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",
     "ts-node": "^10.9.2",
     "nodemon": "^3.0.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "@types/pg": "^8.10.9"
   }
 } 
